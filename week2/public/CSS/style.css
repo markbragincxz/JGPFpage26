@@ -1,0 +1,32 @@
+h1 {    
+    color: #dd0f0f; 
+    margin-left: 20px;
+}
+
+p { font-size: 25px;}
+
+div.button {
+    width: 300px;
+    height: 200px;
+    border-style: dotted solid double;
+    
+}
+
+
+.button {
+    display: inline-block;
+    padding: 15px 25px;
+    font-size: 24px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+
+    background-color: #dd0f0f;
+    color: rgb(31, 42, 19);
+
+    border: none;
+    border-radius:15px;
+    box-shadow: 0 9px #5f5858;
+    
+}
