@@ -1,0 +1,23 @@
+:root{--bg:#12222f;--panel:#1b3243;--ink:#e9e4d8;--mute:#9fb3bf;--acc:#5ec2b7;--code:#0b151d}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 'Space Grotesk',system-ui,sans-serif}
+header{display:flex;flex-wrap:wrap;align-items:center;gap:1rem;padding:.8rem 1.5rem;background:var(--code);position:sticky;top:0;z-index:5}
+header b{font-size:1.1rem;margin-right:auto}
+nav{display:flex;gap:1.2rem;align-items:center}
+nav a{color:var(--ink);text-decoration:none;padding:.3rem 0;border-bottom:2px solid transparent}
+nav a:hover,nav a:focus-visible,nav a.on{border-color:var(--acc);outline:none}
+.dd{position:relative}
+.dd div{display:none;position:absolute;right:0;top:100%;background:var(--panel);min-width:230px;padding:.4rem;border-radius:6px}
+.dd:hover div,.dd:focus-within div{display:block}
+.dd div a{display:block;padding:.4rem .6rem;border:0}
+.dd div a:hover{background:var(--bg)}
+main{max-width:980px;margin:0 auto;padding:2rem 1.2rem 4rem}
+h1{font-size:2.4rem;line-height:1.1;margin:.3rem 0 1rem}
+p,li{max-width:70ch}
+a{color:var(--acc)}
+.stage{aspect-ratio:16/9;background:#000;border-radius:8px;overflow:hidden}
+canvas{width:100%;height:100%;display:block;outline:none}
+.hint{color:var(--mute);font-size:.9rem}
+pre{background:var(--code);padding:1rem;border-radius:6px;overflow-x:auto;font-size:.85rem}
+footer{text-align:center;color:var(--mute);padding:2rem}
+@media (max-width:600px){h1{font-size:1.8rem}.stage{aspect-ratio:4/3}}
