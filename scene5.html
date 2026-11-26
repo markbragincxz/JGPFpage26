@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Scene 5: Orb Garden: two scenes</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <header><b>Games Portfolio</b>
+        <nav aria-label="Main">
+            <a href="index.html">Home</a>
+            <span class="dd"><a href="scene1.html" tabindex="0">Scenes &#9662;</a>
+                <div>
+                    <a href="scene1.html">1 · Shapes, light &amp; shadows</a><a href="scene2.html">2 · 3D
+                        environment</a><a href="scene3.html">3 · Player &amp; physics</a><a href="scene4.html">4 · GUI
+                        &amp; audio</a><a href="scene5.html">5 · Two-scene game</a>
+                </div>
+            </span>
+            <a href="docs.html">Documentation</a>
+        </nav>
+    </header>
+    <main>
+        <h1>Scene 5: Orb Garden: two scenes</h1>
+        <p>Collect 5 orbs to move from the garden to the night arena, or press Switch scene.</p>
+        <div class="stage"><canvas id="c" tabindex="0"></canvas></div>
+        <p class="hint">Move: W A S D or arrows.</p>
+        <p id="err" class="hint"></p>
+    </main>
+    <footer> built with BabylonJS</footer>
+    <script src="https://cdn.babylonjs.com/babylon.js"></script>
+    <script src="https://cdn.babylonjs.com/gui/babylon.gui.min.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/scene5.js"></script>
+</body>
+
+</html>
