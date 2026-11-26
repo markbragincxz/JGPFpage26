@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Documentation</title>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <header><b>Games Portfolio</b>
+    <nav aria-label="Main">
+      <a href="index.html">Home</a>
+      <span class="dd"><a href="scene1.html" tabindex="0">Scenes &#9662;</a>
+        <div>
+          <a href="scene1.html">1 · Shapes, light &amp; shadows</a><a href="scene2.html">2 · 3D environment</a><a
+            href="scene3.html">3 · Player &amp; physics</a><a href="scene4.html">4 · GUI &amp; audio</a><a
+            href="scene5.html">5 · Two-scene game</a>
+        </div>
+      </span>
+      <a href="docs.html" class="on">Documentation</a>
+    </nav>
+  </header>
+  <main>
+    <h1>Documentation: Scene 5</h1>
+    <p>Scene 5 has two scenes: a garden where you collect orbs, and a night arena you reach after collecting all five
+      (or by pressing the GUI button). Code: <code>js/scene5.js</code>.</p>
+    <h2>Concept and design</h2>
+    <p>The game is basically about collecting orbs in two different places. You control this glowing ball and need to
+      get five of them. Once you have all five it switches you over to the other area which is darker and stuff. But you
+      can also just switch back and forth whenever you want using a button.</p>
+    <p>Both places follow the same collecting rules. The first one looks bright with a light sky and green ground and
+      the orbs are pink. The second is like a night arena with dark sky and blue grey ground and cyan orbs plus this
+      light that moves with you.</p>
+    <p>Everything is made in code without any outside files. Meshes come from MeshBuilder and textures are drawn right
+      there and sounds too with web audio. That way no license problems and the whole thing stays small even if it looks
+      basic.</p>
+    <h2>Code structure</h2>
+    <p><code>make(night)</code> builds one scene (camera, light, ground, player, orbs, GUI, update logic). It is called
+      twice, so both scenes share the same code with different settings. <code>common.js</code> holds helpers used by
+      all scenes.</p>
+    <pre>const A = make(false), N = make(true); active = A;
+function swap() { active = (active === A ? N : A); }
+return { render: () =&gt; active.render() };</pre>
+    <h2>Scene event and GUI update</h2>
+    <p>Each frame, the distance between player and orbs is checked. A close orb is disposed, the GUI text changes, a
+      sound plays, and after 5 orbs the scene switches.</p>
+    <pre>if (B.Vector3.Distance(o.position, pl.position) &lt; 1.2) {
+  o.dispose(); score++; lab.text = 'Orbs: ' + score + ' / 5'; beep(660);
+  if (score &gt;= 5) { score = 0; swap(); }
+}</pre>
+    <h2>GUI, transitions and audio</h2>
+    <p>Each scene has its own gui setup with the label and buttons. Sound only starts after a click because of how
+      browsers work.</p>
+    <h2>Evaluation</h2>
+    <p>The main parts worked out like having the two scenes and the gui that changes with the orbs collected. Audio
+      starts off and you turn it on with the button. Switching works both ways too. Keeping files separate helped a lot
+      with keeping things organized.</p>
+    <p>One issue came up where the gui parts did not show up at first. It turned out the library was not loading
+      properly from the first cdn. Switching to the official one fixed it and I added an error message just in case.</p>
+    <p>There are some limits though. The score is the same in both but each has its own orbs so switching can mess that
+      up. Collisions are just distance checks. If there was more time it would be good to add more stuff like enemies or
+      a timer. Also maybe keep scores separate per scene.</p>
+  </main>
+  <footer> built with BabylonJS</footer>
+</body>
+
+</html>
